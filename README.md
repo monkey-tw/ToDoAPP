@@ -18,10 +18,22 @@
 ## User Stories
 
 ### As a user, I want to see all the checked items below the unchecked items
-- 同时有todo和finished items，todo items显示在第一个section，finshed items显示到最后一个section。
-- 只有todo items时，只显示todo section，不显示finished section，包含header title。
-- 只有finished items时，只显示finished section，不显示todo section，包含header title。
-- 都没有时，显示空白页面
+#### 同时有todo和finished items，todo items显示在第一个section，finshed items显示到最后一个section。
+- ViewModel：ViewModel的todoItems array和finishedItems array 都不为空
+- View：用户在事件列表页面，看到todo section显示在上面且有items，finished section显示在下面且有items
+- Model：TodoItem结构体
+#### 只有todo items时，只显示todo section，不显示finished section，包含header title。
+- ViewModel：ViewModel的todoItems array不为空，且finishedItems array 为空
+- View：用户在事件列表页面，看到todo section显示且有items
+- Model：TodoItem结构体
+#### 只有finished items时，只显示finished section，不显示todo section，包含header title。
+- ViewModel：ViewModel的todoItems array为空，且finishedItems array 不为空
+- View：用户在事件列表页面，看到finished section显示且有items
+- Model：TodoItem结构体
+#### 都没有时，显示空白页面
+- ViewModel：ViewModel的todoItems array和finishedItems array 为空
+- View：用户在事件列表页面，看到空白页面
+- Model：TodoItem结构体
 
 ### As a user, I want to check a to-do item to mark it as finished
 #### 有todo item，用户点击check button，该item会从todo section被移除，然后被添加到finished section的第一个位置。
@@ -34,8 +46,14 @@
 - Model：TodoItem结构体
 
 ### As a user, I want to delete a to-do or finished item
-- 有todo tem，用户点击delete button，todo item从todo section中被移除。
-- 有finished item，用户点击delete button，item从finished section中被移除。
+#### 有todo tem，用户点击delete button，todo item从todo section中被移除。
+- ViewModel：ViewModel的deletek方法被调用，对应的todo item从todo items array中被移除。
+- View：用户点击todo item的delete按钮，调用ViewModel的delete方法。
+- Model：TodoItem结构体
+#### 有finished item，用户点击delete button，item从finished section中被移除。
+- ViewModel：ViewModel的deletek方法被调用，对应的finished item从finished items array中被移除。
+- View：用户点击finished item的delete按钮，调用ViewModel的delete方法。
+- Model：TodoItem结构体
 
 # Detail
 ![](./Picture/Detail.png)
