@@ -1,11 +1,21 @@
+# iOS TDD流程
+- 理解PO提供的User Story
+- 梳理业务tasking：从User Story中拆分出若干个业务tasking，每条业务tasking以Given-When-Then的格式描述
+- 梳理技术tasking：分别从ViewModel、View、Model三个层级去描述每条业务tasking，每个类内部的描述需要和业务Tasking进行逻辑映射。把ViewModel、View、Model交互关系梳理出来，以及对应着业务tasking梳理出每个类输入和输出，不需要关心每个类内部的具体实现。
+- 针对技术tasking写出testcase
+
+# 示例
+## UserStory: As a user, I want to uncheck a to-do item
+### 业务tasking：Given：有finished item；When：用户点击uncheck button；Then：该item会从finished section移除，且会被添加到todo section的最后一个位置。
+技术tasking：
+- ViewModel：TodoListViewModel的uncheck方法被调用，对应的finished item从finishedItems array中被移除。
+- View：用户在ToDoListView页面点击某个finshed item view里面的uncheck按钮，调用TodoListViewModel的uncheck方法。
+- Model：TodoItem结构体
+
 # List
 ![](./Picture/List.png)
 
 ## User Stories
-
-### Tech tasking
-- 创建ToDoListView、ToDoItem数据模型、ToDoListViewModel
-- TodoItem结构体，有title和isChecked属性
 
 ### As a user, I want to see all the checked items below the unchecked items
 - 同时有todo和finished items，todo items显示在第一个section，finshed items显示到最后一个section。
