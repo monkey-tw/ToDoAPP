@@ -24,6 +24,10 @@ class AddToDoItemViewModel: ObservableObject {
         setupBandings()
     }
     
+    func save() {
+        onSaveClicked(TodoItem(title: text))
+    }
+    
     func save(item: TodoItem) {
         onSaveClicked(item)
     }

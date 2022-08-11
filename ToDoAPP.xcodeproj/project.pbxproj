@@ -20,9 +20,9 @@
 		B202A01E28A23E7600F7F39A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B202A01D28A23E7600F7F39A /* Assets.xcassets */; };
 		B202A02128A23E7600F7F39A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B202A02028A23E7600F7F39A /* Preview Assets.xcassets */; };
 		B202A02B28A23E7700F7F39A /* ToDoListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A02A28A23E7700F7F39A /* ToDoListViewModelTests.swift */; };
-		B202A03528A23E7700F7F39A /* ToDoAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A03428A23E7700F7F39A /* ToDoAPPUITests.swift */; };
-		B202A03728A23E7700F7F39A /* ToDoAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A03628A23E7700F7F39A /* ToDoAPPUITestsLaunchTests.swift */; };
+		B202A03528A23E7700F7F39A /* TodoListViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A03428A23E7700F7F39A /* TodoListViewUITests.swift */; };
 		B202A04A28A4E50900F7F39A /* AddTodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A04928A4E50900F7F39A /* AddTodoItemView.swift */; };
+		B202A04D28A5035E00F7F39A /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A04C28A5035D00F7F39A /* XCUIElement+Ex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +59,9 @@
 		B202A02628A23E7700F7F39A /* ToDoAPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoAPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B202A02A28A23E7700F7F39A /* ToDoListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewModelTests.swift; sourceTree = "<group>"; };
 		B202A03028A23E7700F7F39A /* ToDoAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B202A03428A23E7700F7F39A /* ToDoAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoAPPUITests.swift; sourceTree = "<group>"; };
-		B202A03628A23E7700F7F39A /* ToDoAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B202A03428A23E7700F7F39A /* TodoListViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewUITests.swift; sourceTree = "<group>"; };
 		B202A04928A4E50900F7F39A /* AddTodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoItemView.swift; sourceTree = "<group>"; };
+		B202A04C28A5035D00F7F39A /* XCUIElement+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,11 +147,19 @@
 		B202A03328A23E7700F7F39A /* ToDoAPPUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B202A03428A23E7700F7F39A /* ToDoAPPUITests.swift */,
-				B202A03628A23E7700F7F39A /* ToDoAPPUITestsLaunchTests.swift */,
+				B202A04B28A5034A00F7F39A /* Helper */,
+				B202A03428A23E7700F7F39A /* TodoListViewUITests.swift */,
 				AF5BD98228A4AFE4003D524F /* AddTodoItemViewTests.swift */,
 			);
 			path = ToDoAPPUITests;
+			sourceTree = "<group>";
+		};
+		B202A04B28A5034A00F7F39A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B202A04C28A5035D00F7F39A /* XCUIElement+Ex.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,9 +317,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B202A03728A23E7700F7F39A /* ToDoAPPUITestsLaunchTests.swift in Sources */,
-				B202A03528A23E7700F7F39A /* ToDoAPPUITests.swift in Sources */,
+				B202A03528A23E7700F7F39A /* TodoListViewUITests.swift in Sources */,
 				AF5BD98328A4AFE4003D524F /* AddTodoItemViewTests.swift in Sources */,
+				B202A04D28A5035E00F7F39A /* XCUIElement+Ex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

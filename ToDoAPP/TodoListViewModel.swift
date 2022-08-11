@@ -7,12 +7,13 @@
 
 import Foundation
 
-class TodoListViewModel {
-    var todoItems: [TodoItem] = []
-    var finishedItems: [TodoItem] = []
+class TodoListViewModel: ObservableObject {
+    @Published var todoItems: [TodoItem] = []
+    @Published var finishedItems: [TodoItem] = []
     
     func save(item: TodoItem) {
         todoItems.insert(item, at: 0)
+        todoItems = Array(todoItems)
     }
     
     func check(item: TodoItem) {

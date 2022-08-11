@@ -25,6 +25,7 @@ class AddTodoItemViewTests: XCTestCase {
     func testShouldShowAllElements() {
         let app = XCUIApplication()
         app.launch()
+        app.buttons["Add"].tap()
         
         XCTAssertTrue(app.staticTexts["Title"].exists)
         XCTAssertTrue(app.textFields["Input"].exists)
@@ -36,6 +37,7 @@ class AddTodoItemViewTests: XCTestCase {
         //Given
         let app = XCUIApplication()
         app.launch()
+        app.buttons["Add"].tap()
         
         //When
         app.textFields["Input"].tap()
@@ -49,13 +51,27 @@ class AddTodoItemViewTests: XCTestCase {
         //Given
         let app = XCUIApplication()
         app.launch()
+        app.buttons["Add"].tap()
+        
         app.textFields["Input"].tap()
-        app.textFields["Input"].typeText("123")
+        app.textFields["Input"].typeText("task1")
         
         //When
-        app.textFields["Input"].typeText("")
+        app.textFields["Input"].clearAndEnterText(text: "")
         
         //Then
         XCTAssertFalse(app.buttons["Save"].isEnabled)
     }
+    
+    func testShouldBackToListViewWhenCancelButtonTapped() {
+        let app = XCUIApplication()
+        app.launch()
+        app.buttons["Add"].tap()
+        
+        app.buttons["Cancel"].tap()
+        
+        XCTAssertTrue(app.staticTexts["ToDo"].exists)
+    }
 }
+
+

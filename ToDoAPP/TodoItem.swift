@@ -7,16 +7,21 @@
 
 import Foundation
 
-class TodoItem: Equatable {
+class TodoItem: Equatable, Identifiable, Hashable {
     static func == (lhs: TodoItem, rhs: TodoItem) -> Bool {
         return lhs.title == rhs.title
     }
     
+    var id: String { title }
     let title: String
     var isChecked: Bool
     
     init(title: String) {
         self.title = title
         self.isChecked = false
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
     }
 }
