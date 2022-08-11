@@ -61,7 +61,7 @@ class ToDoListViewModelTests: XCTestCase {
         sut.save(item: newItemOne)
         sut.save(item: newItemTwo)
         sut.check(item: newItemOne)
-        // WhenJ
+        // When
         sut.check(item: newItemTwo)
         // Then
         XCTAssertEqual(sut.finishedItems[0], newItemTwo)
@@ -88,10 +88,10 @@ class ToDoListViewModelTests: XCTestCase {
         sut.check(item: newItemOne)
         sut.check(item: newItemTwo)
         sut.uncheck(item: newItemOne)
-        // WhenJ
+        // When
         sut.uncheck(item: newItemTwo)
         // Then
-        XCTAssertEqual(sut.todoItems[1], newItemTwo)
+        XCTAssertEqual(sut.todoItems.last, newItemTwo)
     }
     
     func testShouldDeleteItemFromTodoItemsWhenDelete() {
@@ -115,4 +115,22 @@ class ToDoListViewModelTests: XCTestCase {
         XCTAssertFalse(sut.finishedItems.contains(newItem))
     }
 
+    func testSaveButtonStateShouldBeEnabledWhenInputIsNotNil() {
+        // Given
+        sut.updateButtonState(input: "not null")
+        
+        // Then
+        XCTAssertEqual(sut.buttonState, .enabled)
+    }
+    
+    func testSaveButtonStateShouldBeDisabledWhenInputIsNil() {
+        // Given
+        sut.updateButtonState(input: "not nil")
+        
+        // When
+        sut.updateButtonState(input: nil)
+        
+        // Then
+        XCTAssertEqual(sut.buttonState, .disabled)
+    }
 }

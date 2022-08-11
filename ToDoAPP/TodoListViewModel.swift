@@ -10,6 +10,12 @@ import Foundation
 class TodoListViewModel {
     var todoItems: [TodoItem] = []
     var finishedItems: [TodoItem] = []
+    var buttonState: ButtonState = .disabled
+    
+    enum ButtonState {
+        case disabled
+        case enabled
+    }
     
     func save(item: TodoItem) {
         todoItems.insert(item, at: 0)
@@ -33,6 +39,14 @@ class TodoListViewModel {
         } else {
             todoItems = todoItems.filter{ $0 != item }
         }
-        
     }
+    
+    func updateButtonState(input: String?) {
+        if input?.isEmpty == false {
+            buttonState = .enabled
+        } else {
+            buttonState = .disabled
+        }
+    }
+    
 }
