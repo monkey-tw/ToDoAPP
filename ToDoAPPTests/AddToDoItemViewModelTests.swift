@@ -22,4 +22,25 @@ class AddToDoItemViewModelTests: XCTestCase {
         // Then
         XCTAssertEqual(newItem, targetItem)
     }
+    
+    func testSaveButtonStateShouldBeEnabledWhenInputIsNotNil() {
+        // Given
+        let sut = AddToDoItemViewModel(onSaveClicked: {(_) -> Void in })
+        sut.updateButtonState(input: "not null")
+        
+        // Then
+        XCTAssertEqual(sut.buttonState, .enabled)
+    }
+    
+    func testSaveButtonStateShouldBeDisabledWhenInputIsNil() {
+        // Given
+        let sut = AddToDoItemViewModel(onSaveClicked: {(_) -> Void in })
+        sut.updateButtonState(input: "not nil")
+        
+        // When
+        sut.updateButtonState(input: nil)
+        
+        // Then
+        XCTAssertEqual(sut.buttonState, .disabled)
+    }
 }

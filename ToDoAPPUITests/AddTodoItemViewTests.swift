@@ -22,9 +22,40 @@ class AddTodoItemViewTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testShouldContainCancelButton() {
+    func testShouldShowAllElements() {
         let app = XCUIApplication()
         app.launch()
+        
+        XCTAssertTrue(app.staticTexts["Title"].exists)
+        XCTAssertTrue(app.textFields["Input"].exists)
         XCTAssertTrue(app.buttons["Cancel"].exists)
+        XCTAssertTrue(app.buttons["Save"].exists)
+    }
+    
+    func testShouldSaveButtonEnabledWhenInputTitle() {
+        //Given
+        let app = XCUIApplication()
+        app.launch()
+        
+        //When
+        app.textFields["Input"].tap()
+        app.textFields["Input"].typeText("123")
+        
+        //Then
+        XCTAssertTrue(app.buttons["Save"].isEnabled)
+    }
+    
+    func testShouldSaveButtonDiabledWhenInputIsEmpty() {
+        //Given
+        let app = XCUIApplication()
+        app.launch()
+        app.textFields["Input"].tap()
+        app.textFields["Input"].typeText("123")
+        
+        //When
+        app.textFields["Input"].typeText("")
+        
+        //Then
+        XCTAssertFalse(app.buttons["Save"].isEnabled)
     }
 }

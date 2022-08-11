@@ -22,6 +22,7 @@
 		B202A02B28A23E7700F7F39A /* ToDoListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A02A28A23E7700F7F39A /* ToDoListViewModelTests.swift */; };
 		B202A03528A23E7700F7F39A /* ToDoAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A03428A23E7700F7F39A /* ToDoAPPUITests.swift */; };
 		B202A03728A23E7700F7F39A /* ToDoAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A03628A23E7700F7F39A /* ToDoAPPUITestsLaunchTests.swift */; };
+		B202A04A28A4E50900F7F39A /* AddTodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A04928A4E50900F7F39A /* AddTodoItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		B202A03028A23E7700F7F39A /* ToDoAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B202A03428A23E7700F7F39A /* ToDoAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoAPPUITests.swift; sourceTree = "<group>"; };
 		B202A03628A23E7700F7F39A /* ToDoAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B202A04928A4E50900F7F39A /* AddTodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 			children = (
 				B202A01928A23E7300F7F39A /* ToDoAPPApp.swift */,
 				B202A01B28A23E7300F7F39A /* TodoListView.swift */,
+				B202A04928A4E50900F7F39A /* AddTodoItemView.swift */,
 				B202A01D28A23E7600F7F39A /* Assets.xcassets */,
 				B202A01F28A23E7600F7F39A /* Preview Content */,
 				AF5BD97628A391D5003D524F /* TodoItem.swift */,
@@ -287,6 +290,7 @@
 				B202A01C28A23E7300F7F39A /* TodoListView.swift in Sources */,
 				AF5BD97728A391D5003D524F /* TodoItem.swift in Sources */,
 				B202A01A28A23E7300F7F39A /* ToDoAPPApp.swift in Sources */,
+				B202A04A28A4E50900F7F39A /* AddTodoItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

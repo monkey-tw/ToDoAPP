@@ -115,22 +115,4 @@ class ToDoListViewModelTests: XCTestCase {
         XCTAssertFalse(sut.finishedItems.contains(newItem))
     }
 
-    func testSaveButtonStateShouldBeEnabledWhenInputIsNotNil() {
-        // Given
-        sut.updateButtonState(input: "not null")
-        
-        // Then
-        XCTAssertEqual(sut.buttonState, .enabled)
-    }
-    
-    func testSaveButtonStateShouldBeDisabledWhenInputIsNil() {
-        // Given
-        sut.updateButtonState(input: "not nil")
-        
-        // When
-        sut.updateButtonState(input: nil)
-        
-        // Then
-        XCTAssertEqual(sut.buttonState, .disabled)
-    }
 }
