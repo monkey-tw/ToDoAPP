@@ -22,18 +22,12 @@ class TodoListViewUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testShouldContainsAddButton() throws {
+    func testShouldShowAllElements() throws {
         let app = XCUIApplication()
         app.launch()
         
-        XCTAssertTrue(app.buttons["Add"].exists)
-    }
-    
-    func testShouldContainsToDoNavigationTitle() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        XCTAssertTrue(app.staticTexts["ToDo"].exists)
+        XCTAssertTrue(app.navigationBars.element.descendants(matching: .button)["Add"].exists)
+        XCTAssertTrue(app.navigationBars.element.descendants(matching: .staticText)["ToDo"].exists)
     }
     
     func testShouldShowAddTodoItemViewWhenTapAddButton() throws {
@@ -138,4 +132,5 @@ class TodoListViewUITests: XCTestCase {
         app.tables.element.cells.firstMatch.buttons["Check"].tap()
         XCTAssertTrue(app.staticTexts["FinishedCellTitle"].exists)
     }
+    
 }
