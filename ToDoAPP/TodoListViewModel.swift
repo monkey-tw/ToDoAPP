@@ -19,12 +19,14 @@ class TodoListViewModel: ObservableObject {
     func check(item: TodoItem) {
         item.isChecked = true
         finishedItems.insert(item, at: 0)
+        finishedItems = Array(finishedItems)
         todoItems = todoItems.filter{ $0 != item }
     }
     
     func uncheck(item: TodoItem) {
         item.isChecked = false
         todoItems.append(item)
+        todoItems = Array(todoItems)
         finishedItems = finishedItems.filter{ $0 != item }
     }
     

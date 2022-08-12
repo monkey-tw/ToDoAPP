@@ -142,6 +142,33 @@ class TodoListViewUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["task1"].frame.origin.y < app.staticTexts["task2"].frame.origin.y)
     }
     
+    func testShouldRemoveTodoItemFromTodoSectionWhenDeleteClicked() {
+        // Given
+        
+        addTodoItem(app: app, title: "task 1")
+        
+        // When
+        let deleteButton = app.tables.element.cells.firstMatch.buttons["Delete"]
+        XCTAssertTrue(deleteButton.exists)
+        deleteButton.tap()
+        
+        // Then
+        XCTAssertFalse(app.staticTexts["ToDo Items"].exists)
+    }
+    
+    func testShouldRemoveFinishedItemFromFinishedSectionWhenDeleteClicked() {
+        // Given
+        
+        addFinishItem(app: app, title: "task 1")
+        
+        // When
+        let deleteButton = app.tables.element.cells.firstMatch.buttons["Delete"]
+        XCTAssertTrue(deleteButton.exists)
+        deleteButton.tap()
+        
+        // Then
+        XCTAssertFalse(app.staticTexts["Finished Items"].exists)
+    }
 }
 
 extension TodoListViewUITests {

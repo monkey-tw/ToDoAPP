@@ -26,6 +26,14 @@ struct TodoListView: View {
                                 } label: {
                                     Text("Check")
                                 }
+                                
+                                Spacer()
+                                
+                                Button {
+                                    viewModel.delete(item: item)
+                                } label: {
+                                    Text("Delete")
+                                }
                             }
                         }
                     }
@@ -43,11 +51,20 @@ struct TodoListView: View {
                                 } label: {
                                     Text("Uncheck")
                                 }
+                                
+                                Spacer()
+                                
+                                Button {
+                                    viewModel.delete(item: item)
+                                } label: {
+                                    Text("Delete")
+                                }
                             }
                         }
                     }
                 }
             }
+            .buttonStyle(BorderlessButtonStyle())
             .navigationTitle(Text("ToDo"))
             .toolbar {
                 ToolbarItem<Void, NavigationLink<Text, AddTodoItemView>>(placement: .navigationBarTrailing) {
