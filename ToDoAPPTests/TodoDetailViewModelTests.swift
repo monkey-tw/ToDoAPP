@@ -14,7 +14,9 @@ class TodoDetailViewModelTests: XCTestCase {
         // Given
         let newItem = TodoItem(title: "item 1")
         var targetItem: TodoItem?
-        let sut = TodoDetailViewModel(onCheckClicked: {(item) -> Void in
+        let sut = TodoDetailViewModel(
+            item: newItem,
+            onCheckClicked: {(item) -> Void in
             targetItem = item
         }, onUnCheckClicked: { (_) in })
         // When
@@ -27,7 +29,7 @@ class TodoDetailViewModelTests: XCTestCase {
         // Given
         let newItem = TodoItem(title: "item 1")
         var targetItem: TodoItem?
-        let sut = TodoDetailViewModel(onCheckClicked: { (_) in }, onUnCheckClicked: {(item) -> Void in
+        let sut = TodoDetailViewModel(item: newItem, onCheckClicked: { (_) in }, onUnCheckClicked: {(item) -> Void in
             targetItem = item
         })
         // When

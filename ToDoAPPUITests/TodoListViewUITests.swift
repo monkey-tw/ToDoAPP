@@ -51,6 +51,7 @@ class TodoListViewUITests: XCTestCase {
     func testShouldOnlyShowFinishedSectionHeaderTitleWhenOnlyHasFinishedItem() throws {
         addTodoItem(app: app, title: "task1")
         
+        XCTAssertTrue(app.tables.element.cells.firstMatch.buttons["Check"].exists)
         app.tables.element.cells.firstMatch.buttons["Check"].tap()
         
         XCTAssertFalse(app.staticTexts["ToDo Items"].exists)
@@ -63,6 +64,7 @@ class TodoListViewUITests: XCTestCase {
         addTodoItem(app: app, title: "task2")
         
         //check 1
+        XCTAssertTrue(app.tables.element.cells.firstMatch.buttons["Check"].exists)
         app.tables.element.cells.firstMatch.buttons["Check"].tap()
         
         XCTAssertTrue(app.staticTexts["ToDo Items"].exists)
@@ -96,7 +98,6 @@ class TodoListViewUITests: XCTestCase {
     }
     
     func testShouldShowEmptyViewWhenNoItems() {
-        
         XCTAssertFalse(app.staticTexts["ToDo Items"].exists)
         XCTAssertFalse(app.staticTexts["Finished Items"].exists)
     }
@@ -168,6 +169,20 @@ class TodoListViewUITests: XCTestCase {
         
         // Then
         XCTAssertFalse(app.staticTexts["Finished Items"].exists)
+    }
+    
+    func testShouldContainDetailButtonForTodoItems() {
+        // Given
+
+        addTodoItem(app: app, title: "task 1")
+
+        // When
+        let detailButton = app.tables.element.cells.firstMatch.buttons["Detail"]
+        XCTAssertTrue(detailButton.exists)
+        detailButton.tap()
+
+        // Then
+        XCTAssertTrue(app.staticTexts["Todo Detail"].exists)
     }
 }
 

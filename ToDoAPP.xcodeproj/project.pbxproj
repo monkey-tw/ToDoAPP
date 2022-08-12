@@ -16,6 +16,8 @@
 		AF5BD97F28A3A2CD003D524F /* TodoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BD97E28A3A2CD003D524F /* TodoDetailViewModel.swift */; };
 		AF5BD98128A4AAE3003D524F /* TodoItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BD98028A4AAE3003D524F /* TodoItemTests.swift */; };
 		AF5BD98328A4AFE4003D524F /* AddTodoItemViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BD98228A4AFE4003D524F /* AddTodoItemViewTests.swift */; };
+		AF5BD98728A63739003D524F /* TodoDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BD98628A63739003D524F /* TodoDetailViewTests.swift */; };
+		AF5BD98928A63A79003D524F /* TodoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BD98828A63A79003D524F /* TodoDetailView.swift */; };
 		B202A01A28A23E7300F7F39A /* ToDoAPPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A01928A23E7300F7F39A /* ToDoAPPApp.swift */; };
 		B202A01C28A23E7300F7F39A /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A01B28A23E7300F7F39A /* TodoListView.swift */; };
 		B202A01E28A23E7600F7F39A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B202A01D28A23E7600F7F39A /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		AF5BD97E28A3A2CD003D524F /* TodoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailViewModel.swift; sourceTree = "<group>"; };
 		AF5BD98028A4AAE3003D524F /* TodoItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemTests.swift; sourceTree = "<group>"; };
 		AF5BD98228A4AFE4003D524F /* AddTodoItemViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoItemViewTests.swift; sourceTree = "<group>"; };
+		AF5BD98628A63739003D524F /* TodoDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailViewTests.swift; sourceTree = "<group>"; };
+		AF5BD98828A63A79003D524F /* TodoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailView.swift; sourceTree = "<group>"; };
 		B202A01628A23E7300F7F39A /* ToDoAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B202A01928A23E7300F7F39A /* ToDoAPPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoAPPApp.swift; sourceTree = "<group>"; };
 		B202A01B28A23E7300F7F39A /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 				AF5BD97828A39210003D524F /* TodoListViewModel.swift */,
 				AF5BD97A28A3932D003D524F /* AddToDoItemViewModel.swift */,
 				AF5BD97E28A3A2CD003D524F /* TodoDetailViewModel.swift */,
+				AF5BD98828A63A79003D524F /* TodoDetailView.swift */,
 			);
 			path = ToDoAPP;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				B202A04B28A5034A00F7F39A /* Helper */,
 				B202A03428A23E7700F7F39A /* TodoListViewUITests.swift */,
 				AF5BD98228A4AFE4003D524F /* AddTodoItemViewTests.swift */,
+				AF5BD98628A63739003D524F /* TodoDetailViewTests.swift */,
 			);
 			path = ToDoAPPUITests;
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BD24CCB28A6022B0067C610 /* AppDelegate.swift in Sources */,
+				AF5BD98928A63A79003D524F /* TodoDetailView.swift in Sources */,
 				AF5BD97B28A3932D003D524F /* AddToDoItemViewModel.swift in Sources */,
 				AF5BD97F28A3A2CD003D524F /* TodoDetailViewModel.swift in Sources */,
 				AF5BD97928A39210003D524F /* TodoListViewModel.swift in Sources */,
@@ -326,6 +333,7 @@
 				B202A03528A23E7700F7F39A /* TodoListViewUITests.swift in Sources */,
 				AF5BD98328A4AFE4003D524F /* AddTodoItemViewTests.swift in Sources */,
 				B202A04D28A5035E00F7F39A /* XCUIElement+Ex.swift in Sources */,
+				AF5BD98728A63739003D524F /* TodoDetailViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

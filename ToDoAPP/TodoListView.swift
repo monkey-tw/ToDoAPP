@@ -10,6 +10,8 @@ import SwiftUI
 struct TodoListView: View {
     @StateObject var viewModel: TodoListViewModel = .init()
     @State var isPushed: Bool = false
+    @State var showingDetail: Bool = false
+    
     var body: some View {
         NavigationView {
             List {
@@ -34,6 +36,12 @@ struct TodoListView: View {
                                 } label: {
                                     Text("Delete")
                                 }
+                                
+                                Spacer()
+                                NavigationLink(destination: TodoDetailView(viewModel: TodoDetailViewModel(item: item, onCheckClicked: {(_) in}, onUnCheckClicked: {(_) in}))) {
+//                                    Text("Detail")
+                                }
+                                .accessibility(identifier: "Detail Button")
                             }
                         }
                     }
@@ -59,6 +67,12 @@ struct TodoListView: View {
                                 } label: {
                                     Text("Delete")
                                 }
+                                
+                                Spacer()
+                                NavigationLink(destination: TodoDetailView(viewModel: TodoDetailViewModel(item: item, onCheckClicked: {(_) in}, onUnCheckClicked: {(_) in}))) {
+//                                    Text("Detail")
+                                }
+                                .accessibility(identifier: "Detail Button")
                             }
                         }
                     }
@@ -75,6 +89,14 @@ struct TodoListView: View {
                     }
                 }
             }
+//            .sheet(isPresented: $showingDetail, content: {
+//                TodoDetailView(viewModel: TodoDetailViewModel(
+//                    item: viewModel.clickedItem!,
+//                    onCheckClicked: { (_) in },
+//                    onUnCheckClicked: { (_) in }
+//                )
+//              )
+//            })
         }
     }
 }

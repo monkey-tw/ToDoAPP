@@ -8,6 +8,7 @@
 import Foundation
 
 class TodoListViewModel: ObservableObject {
+    @Published var clickedItem: TodoItem?
     @Published var todoItems: [TodoItem] = []
     @Published var finishedItems: [TodoItem] = []
     
