@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BD24CCB28A6022B0067C610 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD24CCA28A6022B0067C610 /* AppDelegate.swift */; };
 		AF5BD97528A38F6C003D524F /* AddToDoItemViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BD97428A38F6C003D524F /* AddToDoItemViewModelTests.swift */; };
 		AF5BD97728A391D5003D524F /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BD97628A391D5003D524F /* TodoItem.swift */; };
 		AF5BD97928A39210003D524F /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BD97828A39210003D524F /* TodoListViewModel.swift */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8BD24CC828A5F6850067C610 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8BD24CCA28A6022B0067C610 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF5BD97428A38F6C003D524F /* AddToDoItemViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoItemViewModelTests.swift; sourceTree = "<group>"; };
 		AF5BD97628A391D5003D524F /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		AF5BD97828A39210003D524F /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		B202A00D28A23E7300F7F39A = {
 			isa = PBXGroup;
 			children = (
+				8BD24CC828A5F6850067C610 /* README.md */,
 				B202A01828A23E7300F7F39A /* ToDoAPP */,
 				B202A02928A23E7700F7F39A /* ToDoAPPTests */,
 				B202A03328A23E7700F7F39A /* ToDoAPPUITests */,
@@ -112,6 +116,7 @@
 		B202A01828A23E7300F7F39A /* ToDoAPP */ = {
 			isa = PBXGroup;
 			children = (
+				8BD24CCA28A6022B0067C610 /* AppDelegate.swift */,
 				B202A01928A23E7300F7F39A /* ToDoAPPApp.swift */,
 				B202A01B28A23E7300F7F39A /* TodoListView.swift */,
 				B202A04928A4E50900F7F39A /* AddTodoItemView.swift */,
@@ -292,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BD24CCB28A6022B0067C610 /* AppDelegate.swift in Sources */,
 				AF5BD97B28A3932D003D524F /* AddToDoItemViewModel.swift in Sources */,
 				AF5BD97F28A3A2CD003D524F /* TodoDetailViewModel.swift in Sources */,
 				AF5BD97928A39210003D524F /* TodoListViewModel.swift in Sources */,

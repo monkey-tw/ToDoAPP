@@ -8,6 +8,8 @@
 import XCTest
 
 class TodoListViewUITests: XCTestCase {
+    
+    var app: XCUIApplication!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -16,6 +18,10 @@ class TodoListViewUITests: XCTestCase {
         continueAfterFailure = false
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        
+        app = XCUIApplication()
+        app.launchArguments.append("-disableAnimations")
+        app.launch()
     }
 
     override func tearDownWithError() throws {
@@ -23,43 +29,27 @@ class TodoListViewUITests: XCTestCase {
     }
 
     func testShouldShowAllElements() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
         XCTAssertTrue(app.navigationBars.element.descendants(matching: .button)["Add"].exists)
         XCTAssertTrue(app.navigationBars.element.descendants(matching: .staticText)["ToDo"].exists)
     }
     
     func testShouldShowAddTodoItemViewWhenTapAddButton() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
         app.buttons["Add"].tap()
         
         XCTAssertTrue(app.textFields["Input"].exists)
     }
 
     func testShouldOnlyShowTodoSectionHeaderTitleWhenOnlyHasTotoItem() throws {
-        let app = XCUIApplication()
-        app.launch()
+        addTodoItem(app: app, title: "task1")
         
-        app.buttons["Add"].tap()
-        app.textFields["Input"].tap()
-        app.textFields["Input"].typeText("task1")
-        app.buttons["Save"].tap()
-        
+//        app.staticTexts["ToDo Items"].waitForExistence(timeout: 0.5)
         XCTAssertTrue(app.staticTexts["ToDo Items"].exists)
+//        XCTAssertTrue(app.staticTexts["ToDo Items"].waitForExistence(timeout: 0.5))
         XCTAssertFalse(app.staticTexts["Finished Items"].exists)
     }
     
     func testShouldOnlyShowFinishedSectionHeaderTitleWhenOnlyHasFinishedItem() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
-        app.buttons["Add"].tap()
-        app.textFields["Input"].tap()
-        app.textFields["Input"].typeText("task1")
-        app.buttons["Save"].tap()
+        addTodoItem(app: app, title: "task1")
         
         app.tables.element.cells.firstMatch.buttons["Check"].tap()
         
@@ -68,20 +58,9 @@ class TodoListViewUITests: XCTestCase {
     }
     
     func testShouldShowBothTodoAndFinishedSectionWhenHasBothTodoAndFinishedItems() throws {
-        let app = XCUIApplication()
-        app.launch()
         
-        //Add Task1
-        app.buttons["Add"].tap()
-        app.textFields["Input"].tap()
-        app.textFields["Input"].typeText("task1")
-        app.buttons["Save"].tap()
-        
-        //Add Task2
-        app.buttons["Add"].tap()
-        app.textFields["Input"].tap()
-        app.textFields["Input"].typeText("task2")
-        app.buttons["Save"].tap()
+        addTodoItem(app: app, title: "task1")
+        addTodoItem(app: app, title: "task2")
         
         //check 1
         app.tables.element.cells.firstMatch.buttons["Check"].tap()
@@ -90,21 +69,25 @@ class TodoListViewUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["Finished Items"].exists)
     }
     
+    func testShouldInsertToTopOfFinishSectionWhenCheckItemFromToDoSection() {
+        // given
+        
+        addFinishItem(app: app, title: "task1")
+        
+        // when
+        addFinishItem(app: app, title: "task2")
+        
+        // then
+        XCTAssertFalse(app.staticTexts["ToDo Items"].exists)
+        XCTAssertTrue(app.staticTexts["Finished Items"].exists)
+        
+        XCTAssertTrue(app.staticTexts["task2"].frame.origin.y < app.staticTexts["task1"].frame.origin.y)
+    }
+    
     func testShouldShowTodoSectionAboveFinishedSectionWhenHasBothTodoAndFinishedItems() throws {
-        let app = XCUIApplication()
-        app.launch()
         
-        //Add Task1
-        app.buttons["Add"].tap()
-        app.textFields["Input"].tap()
-        app.textFields["Input"].typeText("task1")
-        app.buttons["Save"].tap()
-        
-        //Add Task2
-        app.buttons["Add"].tap()
-        app.textFields["Input"].tap()
-        app.textFields["Input"].typeText("task2")
-        app.buttons["Save"].tap()
+        addTodoItem(app: app, title: "task1")
+        addTodoItem(app: app, title: "task2")
         
         //check 1
         app.tables.element.cells.firstMatch.buttons["Check"].tap()
@@ -113,24 +96,65 @@ class TodoListViewUITests: XCTestCase {
     }
     
     func testShouldShowEmptyViewWhenNoItems() {
-        let app = XCUIApplication()
-        app.launch()
         
         XCTAssertFalse(app.staticTexts["ToDo Items"].exists)
         XCTAssertFalse(app.staticTexts["Finished Items"].exists)
     }
     
     func testShouldOnlyShowFinishedCellWhenHasFinishedItem() throws {
-        let app = XCUIApplication()
-        app.launch()
         
-        app.buttons["Add"].tap()
-        app.textFields["Input"].tap()
-        app.textFields["Input"].typeText("task1")
-        app.buttons["Save"].tap()
+        addTodoItem(app: app, title: "task1")
         
         app.tables.element.cells.firstMatch.buttons["Check"].tap()
         XCTAssertTrue(app.staticTexts["FinishedCellTitle"].exists)
     }
     
+    
+    func testShouldRemoveItemFromFinishSectionWhenClickUncheckOnItem() {
+        // given
+        
+        addTodoItem(app: app, title: "task1")
+        app.tables.element.cells.firstMatch.buttons["Check"].tap()
+        
+        // when
+        let uncheckButton = app.tables.element.cells.firstMatch.buttons["Uncheck"]
+        XCTAssertTrue(uncheckButton.exists)
+        uncheckButton.tap()
+        
+        // then
+        XCTAssertTrue(app.staticTexts["ToDo Items"].exists)
+        XCTAssertFalse(app.staticTexts["Finished Items"].exists)
+    }
+    
+    func testShouldMoveToLastOfToDoSectionWhenUncheckItemFromFinishedSection() {
+        // given
+        
+        addTodoItem(app: app, title: "task1")
+        addFinishItem(app: app, title: "task2")
+        
+        // when
+        let uncheckButton = app.tables.element.cells.buttons["Uncheck"]
+        XCTAssertTrue(uncheckButton.exists)
+        uncheckButton.tap()
+        
+        // then
+        XCTAssertFalse(app.staticTexts["Finished Items"].exists)
+        XCTAssertTrue(app.staticTexts["task1"].frame.origin.y < app.staticTexts["task2"].frame.origin.y)
+    }
+    
+}
+
+extension TodoListViewUITests {
+    
+    func addTodoItem(app: XCUIApplication, title: String) {
+        app.buttons["Add"].tap()
+        app.textFields["Input"].tap()
+        app.textFields["Input"].typeText(title)
+        app.buttons["Save"].tap()
+    }
+    
+    func addFinishItem(app: XCUIApplication, title: String) {
+        addTodoItem(app: app, title: title)
+        app.tables.element.cells.firstMatch.buttons["Check"].tap()
+    }
 }

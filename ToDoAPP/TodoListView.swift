@@ -35,6 +35,14 @@ struct TodoListView: View {
                         ForEach(viewModel.finishedItems, id: \.self) { item in
                             HStack {
                                 Text(item.title).accessibility(identifier: "FinishedCellTitle")
+                                
+                                Spacer()
+                                
+                                Button {
+                                    viewModel.uncheck(item: item)
+                                } label: {
+                                    Text("Uncheck")
+                                }
                             }
                         }
                     }
