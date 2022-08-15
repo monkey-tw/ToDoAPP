@@ -21,6 +21,7 @@ class TodoDetailViewTests: XCTestCase {
         
         app = XCUIApplication()
         app.launchArguments.append("-disableAnimations")
+//        app.launchEnvironment["rootView"] = "TodoDetailView"
         app.launch()
     }
 
@@ -40,7 +41,8 @@ class TodoDetailViewTests: XCTestCase {
         directToTodoItemDetail(title: "task1")
         
         app.buttons["ToDo"].tap()
-        XCTAssertTrue(app.buttons["Add"].exists)
+        XCTAssertTrue(app.navigationBars["ToDo"].exists)
+        XCTAssertTrue(app.navigationBars.buttons["Add"].exists)
     }
     
     func testShouldShowUncheckWhenClickCheck() {
@@ -51,7 +53,9 @@ class TodoDetailViewTests: XCTestCase {
     }
     
     func testShouldMoveToFinishedSectionWhenClickCheckInDetailView() {
+        //Given
         directToTodoItemDetail(title: "task1")
+        
         //When
         app.buttons["Check"].tap()
         

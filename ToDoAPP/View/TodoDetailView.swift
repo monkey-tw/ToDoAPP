@@ -24,9 +24,9 @@ struct TodoDetailView: View {
                 VStack {
                     Button(action: {
                         if viewModel.isChecked {
-                            viewModel.uncheck(item: viewModel.item)
+                            viewModel.uncheck()
                         } else {
-                            viewModel.check(item: viewModel.item)
+                            viewModel.check()
                         }
                     }, label: {
                         Text(viewModel.isChecked ? "Uncheck" : "Check")

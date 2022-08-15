@@ -22,20 +22,28 @@ class TodoItemTests: XCTestCase {
     
     func testTwoTodoItemsShouldBeEqualWhenHaveTheSameTitle() {
         // Given
-        let newItemOne = TodoItem(title: "same name")
-        let newItemTwo = TodoItem(title: "same name")
+        let newItemOne = TodoItem(title: "same name", id: "id1")
+        let newItemTwo = TodoItem(title: "same name", id: "id1")
         
         // Then
         XCTAssertEqual(newItemOne, newItemTwo)
     }
     
-    func testTwoTodoItemsShouldNotBeEqualWhenHaveDifferentTitles() {
+    func testTwoTodoItemsShouldNotBeEqualWhenHaveDifferentTitle() {
         // Given
-        let newItemOne = TodoItem(title: "same name")
-        let newItemTwo = TodoItem(title: "different name")
+        let newItemOne = TodoItem(title: "same name", id: "id1")
+        let newItemTwo = TodoItem(title: "different name", id: "id1")
         
         // Then
         XCTAssertNotEqual(newItemOne, newItemTwo)
     }
     
+    func testTwoTodoItemsShouldNotBeEqualWhenHaveDifferentId() {
+        // Given
+        let newItemOne = TodoItem(title: "same name", id: "id1")
+        let newItemTwo = TodoItem(title: "same name", id: "id2")
+        
+        // Then
+        XCTAssertNotEqual(newItemOne, newItemTwo)
+    }
 }

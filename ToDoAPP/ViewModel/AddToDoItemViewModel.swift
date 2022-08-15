@@ -28,10 +28,6 @@ class AddToDoItemViewModel: ObservableObject {
         onSaveClicked(TodoItem(title: text))
     }
     
-    func save(item: TodoItem) {
-        onSaveClicked(item)
-    }
-    
     func updateButtonState(input: String?) {
         if input?.isEmpty == false {
             buttonState = .enabled

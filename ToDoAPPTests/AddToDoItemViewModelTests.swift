@@ -12,15 +12,18 @@ class AddToDoItemViewModelTests: XCTestCase {
 
     func testShouldCallOnSaveClickedWhenSaveButtonClicked() {
         // Given
-        let newItem = TodoItem(title: "item 1")
         var targetItem: TodoItem?
         let sut = AddToDoItemViewModel(onSaveClicked: {(item) -> Void in
             targetItem = item
         })
+        let title = "task 1"
+        sut.text = title
+        
         // When
-        sut.save(item: newItem)
+        sut.save()
+        
         // Then
-        XCTAssertEqual(newItem, targetItem)
+        XCTAssertEqual(targetItem?.title, title)
     }
     
     func testSaveButtonStateShouldBeEnabledWhenInputIsNotNil() {

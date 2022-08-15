@@ -8,13 +8,14 @@
 import Foundation
 
 class TodoDetailViewModel: ObservableObject {
-    let item: TodoItem
-    let onCheckClicked: (TodoItem) -> Void
-    let onUnCheckClicked: (TodoItem) -> Void
     var title: String{
         item.title
     }
     @Published var isChecked: Bool
+    
+    private let item: TodoItem
+    private let onCheckClicked: (TodoItem) -> Void
+    private let onUnCheckClicked: (TodoItem) -> Void
     
     init(
         item: TodoItem,
@@ -27,13 +28,13 @@ class TodoDetailViewModel: ObservableObject {
         self.onUnCheckClicked = onUnCheckClicked
     }
     
-    func check(item: TodoItem) {
+    func check() {
         item.isChecked = true
         isChecked = true
         onCheckClicked(item)
     }
     
-    func uncheck(item: TodoItem) {
+    func uncheck() {
         item.isChecked = false
         isChecked = false
         onUnCheckClicked(item)

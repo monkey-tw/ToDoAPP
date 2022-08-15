@@ -19,10 +19,13 @@ class TodoDetailViewModelTests: XCTestCase {
             onCheckClicked: {(item) -> Void in
             targetItem = item
         }, onUnCheckClicked: { (_) in })
+        
         // When
-        sut.check(item: newItem)
+        sut.check()
+        
         // Then
-        XCTAssertEqual(newItem, targetItem)
+        XCTAssertTrue(sut.isChecked)
+        XCTAssertNotNil(targetItem)
     }
     
     func testShouldCallOnUnCheckClickedWhenUnCheck() {
@@ -32,9 +35,12 @@ class TodoDetailViewModelTests: XCTestCase {
         let sut = TodoDetailViewModel(item: newItem, onCheckClicked: { (_) in }, onUnCheckClicked: {(item) -> Void in
             targetItem = item
         })
+        
         // When
-        sut.uncheck(item: newItem)
+        sut.uncheck()
+        
         // Then
-        XCTAssertEqual(newItem, targetItem)
+        XCTAssertFalse(sut.isChecked)
+        XCTAssertNotNil(targetItem)
     }
 }

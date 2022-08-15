@@ -42,9 +42,7 @@ class TodoListViewUITests: XCTestCase {
     func testShouldOnlyShowTodoSectionHeaderTitleWhenOnlyHasTotoItem() throws {
         addTodoItem(app: app, title: "task1")
         
-//        app.staticTexts["ToDo Items"].waitForExistence(timeout: 0.5)
         XCTAssertTrue(app.staticTexts["ToDo Items"].exists)
-//        XCTAssertTrue(app.staticTexts["ToDo Items"].waitForExistence(timeout: 0.5))
         XCTAssertFalse(app.staticTexts["Finished Items"].exists)
     }
     
@@ -63,7 +61,6 @@ class TodoListViewUITests: XCTestCase {
         addTodoItem(app: app, title: "task1")
         addTodoItem(app: app, title: "task2")
         
-        //check 1
         XCTAssertTrue(app.tables.element.cells.firstMatch.buttons["Check"].exists)
         app.tables.element.cells.firstMatch.buttons["Check"].tap()
         
@@ -73,7 +70,6 @@ class TodoListViewUITests: XCTestCase {
     
     func testShouldInsertToTopOfFinishSectionWhenCheckItemFromToDoSection() {
         // given
-        
         addFinishItem(app: app, title: "task1")
         
         // when
@@ -87,11 +83,9 @@ class TodoListViewUITests: XCTestCase {
     }
     
     func testShouldShowTodoSectionAboveFinishedSectionWhenHasBothTodoAndFinishedItems() throws {
-        
         addTodoItem(app: app, title: "task1")
         addTodoItem(app: app, title: "task2")
         
-        //check 1
         app.tables.element.cells.firstMatch.buttons["Check"].tap()
         
         XCTAssertTrue(app.staticTexts["ToDo Items"].frame.origin.y < app.staticTexts["Finished Items"].frame.origin.y)
@@ -113,7 +107,6 @@ class TodoListViewUITests: XCTestCase {
     
     func testShouldRemoveItemFromFinishSectionWhenClickUncheckOnItem() {
         // given
-        
         addTodoItem(app: app, title: "task1")
         app.tables.element.cells.firstMatch.buttons["Check"].tap()
         
@@ -129,7 +122,6 @@ class TodoListViewUITests: XCTestCase {
     
     func testShouldMoveToLastOfToDoSectionWhenUncheckItemFromFinishedSection() {
         // given
-        
         addTodoItem(app: app, title: "task1")
         addFinishItem(app: app, title: "task2")
         
@@ -145,7 +137,6 @@ class TodoListViewUITests: XCTestCase {
     
     func testShouldRemoveTodoItemFromTodoSectionWhenDeleteClicked() {
         // Given
-        
         addTodoItem(app: app, title: "task 1")
         
         // When
@@ -159,7 +150,6 @@ class TodoListViewUITests: XCTestCase {
     
     func testShouldRemoveFinishedItemFromFinishedSectionWhenDeleteClicked() {
         // Given
-        
         addFinishItem(app: app, title: "task 1")
         
         // When

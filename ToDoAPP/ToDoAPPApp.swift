@@ -14,7 +14,13 @@ struct ToDoAPPApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TodoListView()
+            switch appDelegate.rootPage {
+            case .TodoListView:
+                TodoListView()
+            case .TodoDetailView:
+                TodoDetailView(viewModel: .init(item: .init(title: "task1"), onCheckClicked: { (_) in }, onUnCheckClicked: { (_) in }))
+            }
+            
         }
     }
 }
