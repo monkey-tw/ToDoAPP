@@ -19,6 +19,8 @@ struct ToDoAPPApp: App {
                 TodoListView()
             case .TodoDetailView:
                 TodoDetailView(viewModel: .init(item: .init(title: "task1"), onCheckClicked: { (_) in }, onUnCheckClicked: { (_) in }))
+            case .AddTodoItemView:
+                AddTodoItemView(viewModel: .init(onSaveClicked: { (_) in }))
             }
             
         }

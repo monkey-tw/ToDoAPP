@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddTodoItemView: View {
-    @Binding var isPushed: Bool
+    @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: AddToDoItemViewModel
     
     var body: some View {
@@ -28,7 +28,7 @@ struct AddTodoItemView: View {
             
             HStack {
                 Button {
-                    isPushed = false
+                    dismiss()
                 } label: {
                     Text("Cancel")
                         .foregroundColor(.white)
@@ -39,7 +39,7 @@ struct AddTodoItemView: View {
                 .cornerRadius(3)
                 
                 Button {
-                    isPushed = false
+                    dismiss()
                     viewModel.save()
                 } label: {
                     Text("Save")
@@ -58,6 +58,6 @@ struct AddTodoItemView: View {
 struct AddTodoItemView_Previews: PreviewProvider {
     @State static var isPushed: Bool = false
     static var previews: some View {
-        AddTodoItemView(isPushed: $isPushed, viewModel: .init(onSaveClicked: { _ in }))
+        AddTodoItemView(viewModel: .init(onSaveClicked: { _ in }))
     }
 }

@@ -8,25 +8,21 @@
 import XCTest
 
 class AddTodoItemViewTests: XCTestCase {
-
+    var app: XCUIApplication!
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app = XCUIApplication()
+        app.launchEnvironment["rootView"] = "AddTodoItemView"
+        app.launch()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        app = nil
     }
 
     func testShouldShowAllElements() {
-        let app = XCUIApplication()
-        app.launch()
-        app.buttons["Add"].tap()
-        
         XCTAssertTrue(app.staticTexts["Title"].exists)
         XCTAssertTrue(app.textFields["Input"].exists)
         XCTAssertTrue(app.buttons["Cancel"].exists)
@@ -34,11 +30,6 @@ class AddTodoItemViewTests: XCTestCase {
     }
     
     func testShouldSaveButtonEnabledWhenInputTitle() {
-        //Given
-        let app = XCUIApplication()
-        app.launch()
-        app.buttons["Add"].tap()
-        
         //When
         app.textFields["Input"].tap()
         app.textFields["Input"].typeText("123")
@@ -48,11 +39,6 @@ class AddTodoItemViewTests: XCTestCase {
     }
     
     func testShouldSaveButtonDiabledWhenInputIsEmpty() {
-        //Given
-        let app = XCUIApplication()
-        app.launch()
-        app.buttons["Add"].tap()
-        
         app.textFields["Input"].tap()
         app.textFields["Input"].typeText("task1")
         
@@ -63,15 +49,6 @@ class AddTodoItemViewTests: XCTestCase {
         XCTAssertFalse(app.buttons["Save"].isEnabled)
     }
     
-    func testShouldBackToListViewWhenCancelButtonTapped() {
-        let app = XCUIApplication()
-        app.launch()
-        app.buttons["Add"].tap()
-        
-        app.buttons["Cancel"].tap()
-        
-        XCTAssertTrue(app.staticTexts["ToDo"].exists)
-    }
 }
 
 

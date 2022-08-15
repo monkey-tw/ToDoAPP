@@ -62,7 +62,7 @@ struct TodoListView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: AddTodoItemView(isPushed: $isPushed, viewModel: AddToDoItemViewModel(onSaveClicked: { item in
+                    NavigationLink(destination: AddTodoItemView(viewModel: AddToDoItemViewModel(onSaveClicked: { item in
                         self.viewModel.save(item: item)
                     })), isActive: $isPushed) {
                         Text("Add")
