@@ -10,7 +10,7 @@
 技术tasking：
 - ViewModel：TodoListViewModel的uncheck方法被调用，对应的finished item从finishedItems array中被移除。
 - View：用户在ToDoListView页面点击某个finshed item view里面的uncheck按钮，调用TodoListViewModel的uncheck方法。
-- Model：TodoItem结构体
+- Model：TodoItem model
 
 # List
 ![](./Picture/List.png)
@@ -21,19 +21,19 @@
 #### 同时有todo和finished items，todo items显示在第一个section，finshed items显示到最后一个section。
 - ViewModel：ViewModel的todoItems array和finishedItems array 都不为空
 - View：用户在事件列表页面，看到todo section显示在上面且有items，finished section显示在下面且有items
-- Model：TodoItem结构体
+- Model：TodoItem model
 #### 只有todo items时，只显示todo section，不显示finished section，包含header title。
 - ViewModel：ViewModel的todoItems array不为空，且finishedItems array 为空
 - View：用户在事件列表页面，看到todo section显示且有items
-- Model：TodoItem结构体
+- Model：TodoItem model
 #### 只有finished items时，只显示finished section，不显示todo section，包含header title。
 - ViewModel：ViewModel的todoItems array为空，且finishedItems array 不为空
 - View：用户在事件列表页面，看到finished section显示且有items
-- Model：TodoItem结构体
+- Model：TodoItem model
 #### 都没有时，显示空白页面
 - ViewModel：ViewModel的todoItems array和finishedItems array 为空
 - View：用户在事件列表页面，看到空白页面
-- Model：TodoItem结构体
+- Model：TodoItem model
 
 ### As a user, I want to check a to-do item to mark it as finished
 #### 有todo item，用户点击check button，该item会从todo section被移除，然后被添加到finished section的第一个位置。
@@ -43,17 +43,32 @@
 #### 有finished item，用户点击uncheck button，该item会从finished section移除，且会被添加到todo section的最后一个位置。
 - ViewModel：ViewModel的uncheck方法被调用，对应的finished item从finished items array中被移除。
 - View：用户点击uncheck按钮，调用ViewModel的uncheck方法。
-- Model：TodoItem结构体
+- Model：TodoItem model
 
 ### As a user, I want to delete a to-do or finished item
 #### 有todo tem，用户点击delete button，todo item从todo section中被移除。
 - ViewModel：ViewModel的deletek方法被调用，对应的todo item从todo items array中被移除。
 - View：用户点击todo item的delete按钮，调用ViewModel的delete方法。
-- Model：TodoItem结构体
+- Model：TodoItem model
+
 #### 有finished item，用户点击delete button，item从finished section中被移除。
-- ViewModel：ViewModel的deletek方法被调用，对应的finished item从finished items array中被移除。
+- ViewModel：ViewModel的delete方法被调用，对应的finished item从finished items array中被移除。
 - View：用户点击finished item的delete按钮，调用ViewModel的delete方法。
-- Model：TodoItem结构体
+- Model：TodoItem model
+
+### 用户添加了item或者修改了item内容，可以保存到本地，并在下一次App启动的时候再list中看到已经保存的item
+#### 添加了item之后，可以保存到本地，下次启动的时候可以看到这条item
+- ViewModel：添加item时，调用storage的save接口来保存item
+- Model：TodoItem model
+
+#### 当修改了item之后，该item的修改会同步到本地，下次启动的时候看到最新的状态
+- ViewModel：更新item时，调用storage的update接口来更新item
+- Model：TodoItem model
+
+#### 当删除了item之后，该item也会从本地中删除，下次启动的时候不会看到该item
+- ViewModel：删除item时，调用storage的delete接口来删除item
+- Model：TodoItem model
+
 
 # Detail
 ![](./Picture/Detail.png)

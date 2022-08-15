@@ -24,6 +24,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             let page = ViewPage(rawValue: identifier) {
             rootPage = page
         }
+        
+        if CommandLine.arguments.contains("-cleanUserDefaults") {
+            TodoItemManager().deleteAllItems()
+        }
+        
         return true
     }
 }

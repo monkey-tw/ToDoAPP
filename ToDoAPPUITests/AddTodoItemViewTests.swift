@@ -14,6 +14,7 @@ class AddTodoItemViewTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchArguments.append("-cleanUserDefaults")
         app.launchEnvironment["rootView"] = "AddTodoItemView"
         app.launch()
     }

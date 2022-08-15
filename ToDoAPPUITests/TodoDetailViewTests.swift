@@ -18,6 +18,7 @@ class TodoDetailViewTests: XCTestCase {
         continueAfterFailure = false
         
         app = XCUIApplication()
+        app.launchArguments.append("-cleanUserDefaults")
         app.launchEnvironment["rootView"] = "TodoDetailView"
         app.launch()
     }

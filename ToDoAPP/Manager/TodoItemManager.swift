@@ -16,7 +16,7 @@ protocol TodoItemStorable {
 }
 
 class TodoItemManager: TodoItemStorable {
-    let userDefaults = UserDefaults.standard
+    private let userDefaults = UserDefaults.standard
     
     enum Constants {
         static let todoItemsKey: String = "com.ToDoApp.todoItemsKey"
