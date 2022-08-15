@@ -62,8 +62,8 @@ class TodoDetailViewTests: XCTestCase {
         app.otherElements.buttons["Detail Button"].tap()
         //When
         app.buttons["Check"].tap()
-        XCTAssertTrue(app.buttons["Dismiss"].exists)
-        app.buttons["Dismiss"].tap()
+//        XCTAssertTrue(app.buttons["Dismiss"].exists)
+//        app.buttons["Dismiss"].tap()
         
         //Then
         XCTAssertFalse(app.staticTexts["ToDo Items"].exists)
