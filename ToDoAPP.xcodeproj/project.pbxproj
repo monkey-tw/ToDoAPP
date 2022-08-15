@@ -27,6 +27,9 @@
 		B202A04A28A4E50900F7F39A /* AddTodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A04928A4E50900F7F39A /* AddTodoItemView.swift */; };
 		B202A04D28A5035E00F7F39A /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A04C28A5035D00F7F39A /* XCUIElement+Ex.swift */; };
 		B202A08D28A9E7FA00F7F39A /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A08C28A9E7FA00F7F39A /* TodoCell.swift */; };
+		B28FD3E728AA36D2005A3F19 /* TodoItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FD3E628AA36D2005A3F19 /* TodoItemManager.swift */; };
+		B28FD3E928AA3798005A3F19 /* TodoItemManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FD3E828AA3798005A3F19 /* TodoItemManagerTests.swift */; };
+		B28FD3EC28AA4698005A3F19 /* MockTodoItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FD3EB28AA4698005A3F19 /* MockTodoItemManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		B202A04928A4E50900F7F39A /* AddTodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoItemView.swift; sourceTree = "<group>"; };
 		B202A04C28A5035D00F7F39A /* XCUIElement+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Ex.swift"; sourceTree = "<group>"; };
 		B202A08C28A9E7FA00F7F39A /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		B28FD3E628AA36D2005A3F19 /* TodoItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemManager.swift; sourceTree = "<group>"; };
+		B28FD3E828AA3798005A3F19 /* TodoItemManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemManagerTests.swift; sourceTree = "<group>"; };
+		B28FD3EB28AA4698005A3F19 /* MockTodoItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTodoItemManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 		B202A01828A23E7300F7F39A /* ToDoAPP */ = {
 			isa = PBXGroup;
 			children = (
+				B28FD3E528AA3698005A3F19 /* Manager */,
 				B202A09028A9F2D500F7F39A /* Model */,
 				B202A08F28A9F2CB00F7F39A /* ViewModel */,
 				B202A08E28A9F2BD00F7F39A /* View */,
@@ -144,10 +151,12 @@
 		B202A02928A23E7700F7F39A /* ToDoAPPTests */ = {
 			isa = PBXGroup;
 			children = (
+				B28FD3EA28AA4685005A3F19 /* Helper */,
 				B202A02A28A23E7700F7F39A /* ToDoListViewModelTests.swift */,
 				AF5BD97428A38F6C003D524F /* AddToDoItemViewModelTests.swift */,
 				AF5BD97C28A3A1DE003D524F /* TodoDetailViewModelTests.swift */,
 				AF5BD98028A4AAE3003D524F /* TodoItemTests.swift */,
+				B28FD3E828AA3798005A3F19 /* TodoItemManagerTests.swift */,
 			);
 			path = ToDoAPPTests;
 			sourceTree = "<group>";
@@ -198,6 +207,22 @@
 				AF5BD97628A391D5003D524F /* TodoItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B28FD3E528AA3698005A3F19 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B28FD3E628AA36D2005A3F19 /* TodoItemManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		B28FD3EA28AA4685005A3F19 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B28FD3EB28AA4698005A3F19 /* MockTodoItemManager.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +364,7 @@
 				B202A01C28A23E7300F7F39A /* TodoListView.swift in Sources */,
 				AF5BD97728A391D5003D524F /* TodoItem.swift in Sources */,
 				B202A01A28A23E7300F7F39A /* ToDoAPPApp.swift in Sources */,
+				B28FD3E728AA36D2005A3F19 /* TodoItemManager.swift in Sources */,
 				B202A04A28A4E50900F7F39A /* AddTodoItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,7 +373,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B28FD3EC28AA4698005A3F19 /* MockTodoItemManager.swift in Sources */,
 				B202A02B28A23E7700F7F39A /* ToDoListViewModelTests.swift in Sources */,
+				B28FD3E928AA3798005A3F19 /* TodoItemManagerTests.swift in Sources */,
 				AF5BD97528A38F6C003D524F /* AddToDoItemViewModelTests.swift in Sources */,
 				AF5BD98128A4AAE3003D524F /* TodoItemTests.swift in Sources */,
 				AF5BD97D28A3A1DE003D524F /* TodoDetailViewModelTests.swift in Sources */,

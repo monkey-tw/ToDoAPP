@@ -46,4 +46,13 @@ class TodoItemTests: XCTestCase {
         // Then
         XCTAssertNotEqual(newItemOne, newItemTwo)
     }
+    
+    func testTwoTodoItemsShouldNotBeEqualWhenHaveDifferentIsChecked() {
+        // Given
+        let newItemOne = TodoItem(title: "same name", id: "id1", isChecked: false)
+        let newItemTwo = TodoItem(title: "same name", id: "id1", isChecked: true)
+        
+        // Then
+        XCTAssertNotEqual(newItemOne, newItemTwo)
+    }
 }

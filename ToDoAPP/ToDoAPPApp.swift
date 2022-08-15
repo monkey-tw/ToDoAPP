@@ -16,7 +16,7 @@ struct ToDoAPPApp: App {
         WindowGroup {
             switch appDelegate.rootPage {
             case .TodoListView:
-                TodoListView()
+                TodoListView(viewModel: .init(todoItemStorable: TodoItemManager()))
             case .TodoDetailView:
                 TodoDetailView(viewModel: .init(item: .init(title: "task1"), onCheckClicked: { (_) in }, onUnCheckClicked: { (_) in }))
             case .AddTodoItemView:

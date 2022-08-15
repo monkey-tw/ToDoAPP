@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TodoListView: View {
-    @StateObject var viewModel: TodoListViewModel = .init()
+    @StateObject var viewModel: TodoListViewModel
     @State var isPushed: Bool = false
     
     var body: some View {
@@ -75,6 +75,6 @@ struct TodoListView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        TodoListView()
+        TodoListView(viewModel: .init(todoItemStorable: TodoItemManager()))
     }
 }

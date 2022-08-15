@@ -11,14 +11,17 @@ import XCTest
 class ToDoListViewModelTests: XCTestCase {
     
     private var sut: TodoListViewModel!
+    private var manager: MockTodoItemManager!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        sut = TodoListViewModel()
+        manager = MockTodoItemManager()
+        sut = TodoListViewModel(todoItemStorable: manager)
     }
 
     override func tearDownWithError() throws {
         try super.tearDownWithError()
+        manager = nil
         sut = nil
     }
     
@@ -29,6 +32,7 @@ class ToDoListViewModelTests: XCTestCase {
         sut.save(item: newItem)
         // Then
         XCTAssertEqual(sut.todoItems.count, 1)
+        XCTAssertEqual(manager.callPath.last, .save)
     }
     
     func testShouldAddNewTodoItemAsTheFirstWhenReceiveAddItemCallback() {
@@ -52,6 +56,7 @@ class ToDoListViewModelTests: XCTestCase {
         // Then
         XCTAssertEqual(sut.todoItems.count, 0)
         XCTAssertEqual(sut.finishedItems[0], newItem)
+        XCTAssertEqual(manager.callPath.last, .update)
     }
     
     func testShouldMoveTodoItemsToFinishedAsTheFirstItemsWhenCheck() {
@@ -102,6 +107,7 @@ class ToDoListViewModelTests: XCTestCase {
         sut.delete(item: newItem)
         // Then
         XCTAssertFalse(sut.todoItems.contains(newItem))
+        XCTAssertEqual(manager.callPath.last, .delete)
     }
     
     func testShouldDeleteItemFromFinishedItemsWhenDelete() {
