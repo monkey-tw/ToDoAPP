@@ -10,7 +10,6 @@ import SwiftUI
 struct TodoListView: View {
     @StateObject var viewModel: TodoListViewModel = .init()
     @State var isPushed: Bool = false
-    @State var showingDetail: Bool = false
     
     var body: some View {
         NavigationView {
@@ -39,7 +38,7 @@ struct TodoListView: View {
                                 
                                 Spacer()
                                 NavigationLink(destination: TodoDetailView(viewModel: TodoDetailViewModel(item: item, onCheckClicked: {(_) in}, onUnCheckClicked: {(_) in}))) {
-//                                    Text("Detail")
+                                    Text("Detail")
                                 }
                                 .accessibility(identifier: "Detail Button")
                             }
@@ -70,7 +69,7 @@ struct TodoListView: View {
                                 
                                 Spacer()
                                 NavigationLink(destination: TodoDetailView(viewModel: TodoDetailViewModel(item: item, onCheckClicked: {(_) in}, onUnCheckClicked: {(_) in}))) {
-//                                    Text("Detail")
+                                    Text("Detail")
                                 }
                                 .accessibility(identifier: "Detail Button")
                             }
@@ -80,6 +79,7 @@ struct TodoListView: View {
             }
             .buttonStyle(BorderlessButtonStyle())
             .navigationTitle(Text("ToDo"))
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem<Void, NavigationLink<Text, AddTodoItemView>>(placement: .navigationBarTrailing) {
                     NavigationLink(destination: AddTodoItemView(isPushed: $isPushed, viewModel: AddToDoItemViewModel(onSaveClicked: { item in
@@ -89,14 +89,6 @@ struct TodoListView: View {
                     }
                 }
             }
-//            .sheet(isPresented: $showingDetail, content: {
-//                TodoDetailView(viewModel: TodoDetailViewModel(
-//                    item: viewModel.clickedItem!,
-//                    onCheckClicked: { (_) in },
-//                    onUnCheckClicked: { (_) in }
-//                )
-//              )
-//            })
         }
     }
 }

@@ -56,9 +56,22 @@ class TodoDetailViewTests: XCTestCase {
         XCTAssertTrue(app.buttons["Uncheck"].exists)
     }
     
+    func testShouldMoveToFinishedSectionWhenClickCheckInDetailView() {
+        addTodoItem(title: "task1")
+        XCTAssertTrue(app.otherElements.buttons["Detail Button"].exists)
+        app.otherElements.buttons["Detail Button"].tap()
+        //When
+        app.buttons["Check"].tap()
+        XCTAssertTrue(app.buttons["Dismiss"].exists)
+        app.buttons["Dismiss"].tap()
+        
+        //Then
+        XCTAssertFalse(app.staticTexts["ToDo Items"].exists)
+        XCTAssertTrue(app.staticTexts["Finished Items"].exists)
+    }
+    
     func testShouldShowCheckWhenClickUncheck() {
         addFinishItem(title: "task1")
-        sleep(1)
         XCTAssertTrue(app.otherElements.buttons["Detail Button"].exists)
         app.otherElements.buttons["Detail Button"].tap()
         app.buttons["Uncheck"].tap()
