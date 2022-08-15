@@ -122,18 +122,13 @@
 		B202A01828A23E7300F7F39A /* ToDoAPP */ = {
 			isa = PBXGroup;
 			children = (
+				B202A09028A9F2D500F7F39A /* Model */,
+				B202A08F28A9F2CB00F7F39A /* ViewModel */,
+				B202A08E28A9F2BD00F7F39A /* View */,
 				8BD24CCA28A6022B0067C610 /* AppDelegate.swift */,
 				B202A01928A23E7300F7F39A /* ToDoAPPApp.swift */,
-				B202A01B28A23E7300F7F39A /* TodoListView.swift */,
-				B202A04928A4E50900F7F39A /* AddTodoItemView.swift */,
-				B202A08C28A9E7FA00F7F39A /* TodoCell.swift */,
 				B202A01D28A23E7600F7F39A /* Assets.xcassets */,
 				B202A01F28A23E7600F7F39A /* Preview Content */,
-				AF5BD97628A391D5003D524F /* TodoItem.swift */,
-				AF5BD97828A39210003D524F /* TodoListViewModel.swift */,
-				AF5BD97A28A3932D003D524F /* AddToDoItemViewModel.swift */,
-				AF5BD97E28A3A2CD003D524F /* TodoDetailViewModel.swift */,
-				AF5BD98828A63A79003D524F /* TodoDetailView.swift */,
 			);
 			path = ToDoAPP;
 			sourceTree = "<group>";
@@ -174,6 +169,35 @@
 				B202A04C28A5035D00F7F39A /* XCUIElement+Ex.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		B202A08E28A9F2BD00F7F39A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B202A01B28A23E7300F7F39A /* TodoListView.swift */,
+				B202A04928A4E50900F7F39A /* AddTodoItemView.swift */,
+				B202A08C28A9E7FA00F7F39A /* TodoCell.swift */,
+				AF5BD98828A63A79003D524F /* TodoDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B202A08F28A9F2CB00F7F39A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF5BD97828A39210003D524F /* TodoListViewModel.swift */,
+				AF5BD97A28A3932D003D524F /* AddToDoItemViewModel.swift */,
+				AF5BD97E28A3A2CD003D524F /* TodoDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B202A09028A9F2D500F7F39A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF5BD97628A391D5003D524F /* TodoItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
