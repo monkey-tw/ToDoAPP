@@ -17,24 +17,40 @@ struct AddTodoItemView: View {
                 Text("Title")
                 
                 TextField("Input", text: $viewModel.text)
+                    .textFieldStyle(.roundedBorder)
+                    
             }
+            .padding(.leading, 20)
+            .padding(.trailing, 20)
+            
+            Spacer()
+                .frame(height: 50)
             
             HStack {
                 Button {
                     isPushed = false
                 } label: {
                     Text("Cancel")
+                        .foregroundColor(.white)
                 }
+                .frame(width: 100)
+                .padding(.all, 6)
+                .background(Color.red)
+                .cornerRadius(3)
                 
                 Button {
                     isPushed = false
                     viewModel.save()
                 } label: {
                     Text("Save")
-                }.disabled(viewModel.buttonState == .disabled)
-
+                        .foregroundColor(.white)
+                }
+                .frame(width: 100)
+                .padding(.all, 6)
+                .background(viewModel.buttonState == .disabled ? Color.gray : Color.green)
+                .cornerRadius(3)
+                .disabled(viewModel.buttonState == .disabled)
             }
-            
         }
     }
 }
