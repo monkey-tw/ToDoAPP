@@ -26,6 +26,7 @@
 		B202A03528A23E7700F7F39A /* TodoListViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A03428A23E7700F7F39A /* TodoListViewUITests.swift */; };
 		B202A04A28A4E50900F7F39A /* AddTodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A04928A4E50900F7F39A /* AddTodoItemView.swift */; };
 		B202A04D28A5035E00F7F39A /* XCUIElement+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A04C28A5035D00F7F39A /* XCUIElement+Ex.swift */; };
+		B202A08D28A9E7FA00F7F39A /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B202A08C28A9E7FA00F7F39A /* TodoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		B202A03428A23E7700F7F39A /* TodoListViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewUITests.swift; sourceTree = "<group>"; };
 		B202A04928A4E50900F7F39A /* AddTodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoItemView.swift; sourceTree = "<group>"; };
 		B202A04C28A5035D00F7F39A /* XCUIElement+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Ex.swift"; sourceTree = "<group>"; };
+		B202A08C28A9E7FA00F7F39A /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				B202A01928A23E7300F7F39A /* ToDoAPPApp.swift */,
 				B202A01B28A23E7300F7F39A /* TodoListView.swift */,
 				B202A04928A4E50900F7F39A /* AddTodoItemView.swift */,
+				B202A08C28A9E7FA00F7F39A /* TodoCell.swift */,
 				B202A01D28A23E7600F7F39A /* Assets.xcassets */,
 				B202A01F28A23E7600F7F39A /* Preview Content */,
 				AF5BD97628A391D5003D524F /* TodoItem.swift */,
@@ -306,6 +309,7 @@
 				8BD24CCB28A6022B0067C610 /* AppDelegate.swift in Sources */,
 				AF5BD98928A63A79003D524F /* TodoDetailView.swift in Sources */,
 				AF5BD97B28A3932D003D524F /* AddToDoItemViewModel.swift in Sources */,
+				B202A08D28A9E7FA00F7F39A /* TodoCell.swift in Sources */,
 				AF5BD97F28A3A2CD003D524F /* TodoDetailViewModel.swift in Sources */,
 				AF5BD97928A39210003D524F /* TodoListViewModel.swift in Sources */,
 				B202A01C28A23E7300F7F39A /* TodoListView.swift in Sources */,

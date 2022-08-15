@@ -17,34 +17,20 @@ struct TodoListView: View {
                 if !viewModel.todoItems.isEmpty {
                     Section("ToDo Items") {
                         ForEach(viewModel.todoItems, id: \.self) { item in
-                            HStack {
-                                Text(item.title).accessibility(identifier: "ToDoCellTitle")
-                                
-                                Spacer()
-                                
-                                Button {
-                                    viewModel.check(item: item)
-                                } label: {
-                                    Text("Check")
-                                }
-                                
-                                Spacer()
-                                
-                                Button {
+                            NavigationLink(destination: TodoDetailView(viewModel: TodoDetailViewModel(item: item, onCheckClicked: {(item) in
+                                viewModel.check(item: item)
+                            }, onUnCheckClicked: {(item) in
+                                viewModel.uncheck(item: item)
+                            }))) {
+                                TodoCell(title: item.title, isChecked: item.isChecked, onCheckStatusButtonClicked: { isChecked in
+                                    if isChecked {
+                                        viewModel.uncheck(item: item)
+                                    }else {
+                                        viewModel.check(item: item)
+                                    }
+                                }, onDeleteClicked: {
                                     viewModel.delete(item: item)
-                                } label: {
-                                    Text("Delete")
-                                }
-                                
-                                Spacer()
-                                NavigationLink(destination: TodoDetailView(viewModel: TodoDetailViewModel(item: item, onCheckClicked: {(item) in
-                                    viewModel.check(item: item)
-                                }, onUnCheckClicked: {(item) in
-                                    viewModel.uncheck(item: item)
-                                }))) {
-                                    Text("Detail")
-                                }
-                                .accessibility(identifier: "Detail Button")
+                                }).buttonStyle(BorderlessButtonStyle())
                             }
                         }
                     }
@@ -52,34 +38,20 @@ struct TodoListView: View {
                 if !viewModel.finishedItems.isEmpty {
                     Section("Finished Items") {
                         ForEach(viewModel.finishedItems, id: \.self) { item in
-                            HStack {
-                                Text(item.title).accessibility(identifier: "FinishedCellTitle")
-                                
-                                Spacer()
-                                
-                                Button {
-                                    viewModel.uncheck(item: item)
-                                } label: {
-                                    Text("Uncheck")
-                                }
-                                
-                                Spacer()
-                                
-                                Button {
+                            NavigationLink(destination: TodoDetailView(viewModel: TodoDetailViewModel(item: item, onCheckClicked: {(item) in
+                                viewModel.check(item: item)
+                            }, onUnCheckClicked: {(item) in
+                                viewModel.uncheck(item: item)
+                            }))) {
+                                TodoCell(title: item.title, isChecked: item.isChecked, onCheckStatusButtonClicked: { isChecked in
+                                    if isChecked {
+                                        viewModel.uncheck(item: item)
+                                    }else {
+                                        viewModel.check(item: item)
+                                    }
+                                }, onDeleteClicked: {
                                     viewModel.delete(item: item)
-                                } label: {
-                                    Text("Delete")
-                                }
-                                
-                                Spacer()
-                                NavigationLink(destination: TodoDetailView(viewModel: TodoDetailViewModel(item: item, onCheckClicked: {(item) in
-                                    viewModel.check(item: item)
-                                }, onUnCheckClicked: {(item) in
-                                    viewModel.uncheck(item: item)
-                                }))) {
-                                    Text("Detail")
-                                }
-                                .accessibility(identifier: "Detail Button")
+                                }).buttonStyle(BorderlessButtonStyle())
                             }
                         }
                     }

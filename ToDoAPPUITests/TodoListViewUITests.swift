@@ -173,13 +173,12 @@ class TodoListViewUITests: XCTestCase {
     
     func testShouldContainDetailButtonForTodoItems() {
         // Given
-
-        addTodoItem(app: app, title: "task 1")
+        let title: String = "task 1"
+        addTodoItem(app: app, title: title)
 
         // When
-        let detailButton = app.tables.element.cells.firstMatch.buttons["Detail"]
-        XCTAssertTrue(detailButton.exists)
-        detailButton.tap()
+        XCTAssertTrue(app.staticTexts[title].exists)
+        app.staticTexts[title].tap()
 
         // Then
         XCTAssertTrue(app.staticTexts["Todo Detail"].exists)
