@@ -34,13 +34,12 @@ class TodoDetailViewTests: XCTestCase {
         
         XCTAssertTrue(app.staticTexts["task1"].exists)
         XCTAssertTrue(app.buttons["Check"].exists)
-        XCTAssertTrue(app.buttons["Dismiss"].exists)
     }
     
     func testShouldBackToTodoListWhenClickDismiss() {
         directToTodoItemDetail(title: "task1")
         
-        app.buttons["Dismiss"].tap()
+        app.buttons["ToDo"].tap()
         XCTAssertTrue(app.buttons["Add"].exists)
     }
     
