@@ -37,7 +37,11 @@ struct TodoListView: View {
                                 }
                                 
                                 Spacer()
-                                NavigationLink(destination: TodoDetailView(viewModel: TodoDetailViewModel(item: item, onCheckClicked: {(_) in}, onUnCheckClicked: {(_) in}))) {
+                                NavigationLink(destination: TodoDetailView(viewModel: TodoDetailViewModel(item: item, onCheckClicked: {(item) in
+                                    viewModel.check(item: item)
+                                }, onUnCheckClicked: {(item) in
+                                    viewModel.uncheck(item: item)
+                                }))) {
                                     Text("Detail")
                                 }
                                 .accessibility(identifier: "Detail Button")
@@ -68,7 +72,11 @@ struct TodoListView: View {
                                 }
                                 
                                 Spacer()
-                                NavigationLink(destination: TodoDetailView(viewModel: TodoDetailViewModel(item: item, onCheckClicked: {(_) in}, onUnCheckClicked: {(_) in}))) {
+                                NavigationLink(destination: TodoDetailView(viewModel: TodoDetailViewModel(item: item, onCheckClicked: {(item) in
+                                    viewModel.check(item: item)
+                                }, onUnCheckClicked: {(item) in
+                                    viewModel.uncheck(item: item)
+                                }))) {
                                     Text("Detail")
                                 }
                                 .accessibility(identifier: "Detail Button")
