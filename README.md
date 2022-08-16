@@ -6,11 +6,16 @@
 
 # 示例
 ## UserStory: As a user, I want to uncheck a to-do item
-### 业务tasking：Given：有finished item；When：用户点击uncheck button；Then：该item会从finished section移除，且会被添加到todo section的最后一个位置。
-技术tasking：
+### 业务Tasking：Given：有finished item；When：用户点击uncheck button；Then：该item会从finished section移除，且会被添加到todo section的最后一个位置。
+技术Tasking：
 - ViewModel：TodoListViewModel的uncheck方法被调用，对应的finished item从finishedItems array中被移除。
 - View：用户在ToDoListView页面点击某个finshed item view里面的uncheck按钮，调用TodoListViewModel的uncheck方法。
 - Model：TodoItem结构体
+
+# 任务
+- 按照示例，给每一个UserStory按照Given-When-Then的格式梳理出业务Tasking；
+- 针对每一个业务Tasking，根据ViewModel、View、Model三个层级去描述他们之间的交互关系；
+- 针对每一个技术Tasking，如果是逻辑相关的使用Unit Tests驱动开发。如果是UI相关的使用UI Tests驱动开发；
 
 # List
 ![](./Picture/List.png)
