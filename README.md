@@ -13,7 +13,7 @@ tech tasking:
 - Model：TodoItem model
 
 # List
-![](./Picture/list.png)
+<img src="./Picture/list.png" width = "300" height = "533" alt="图片名称"/>
 
 ## User Stories
 
@@ -73,7 +73,7 @@ tech tasking:
 
 
 # Detail
-![](./Picture/detail.png)
+<img src="./Picture/detail.png" width = "300" height = "533" alt="图片名称"/>
 
 ## User Stories
 
@@ -95,18 +95,24 @@ tech tasking:
 #### Given: user landing at the finished item detail page, When: click the uncheck button, Then: the uncheck button will turns to check. When back to item listing page, the item has already been removed from finished section, and inserted as the last of todo section.
 
 # Add
-![](./Picture/add.png)
+<img src="./Picture/add.png" width = "300" height = "533" alt="图片名称"/>
 
 ## User Stories
-### As a user, given that I have tapped the add (+) button in the item list, I want to see a form to put in the details (title) of a to-do item
-#### Given: user landing at the list page, when: user click + button at the top right corner in the item listing page, Then: will direct to input page.
-#### Given: user landing at the input page, Then: observe a title textfield at the top and cancel button, save button at the bottom.
+### **UserStory1:** As a user, given that I have tapped the add (+) button in the item list, I want to see a form to put in the details (title) of a to-do item
+#### **AC1:** Given: user landing at the list page, when: user click + button at the top right corner in the item listing page, Then: will direct to input page.
+#### **AC2:** Given: user landing at the input page, Then: observe a title textfield at the top and cancel button, save button at the bottom.
 
-### As a user, I want to add a to-do item to the list of to-do items by inputting title then tapping on the Save button
-#### Given: user landing at the input page, When: click the cancel button Then: will direct back to item listing page, and there will be no new item added.
-#### Given: user landing at the input page, When: there is no input in the title textfield, Then: the save button is unclickable and has gray color.
-#### Given: user landing at the input page, When: there is input in the title textfield, Then: the save button is clickable and has green color.
-#### Given: user landing at the input page, When: there is input in the title textfield, click save button, Then: will direct to item listing page and the new item has been inserted to the first of todo section.
+### **UserStory2:** As a user, I want to add a to-do item to the list of to-do items by inputting title then tapping on the Save button
+#### **AC1:** Given: user landing at the input page, When: click the cancel button Then: will direct back to item listing page, and there will be no new item added.
+#### **AC2:** Given: user landing at the input page, When: there is no input in the title textfield, Then: the save button is unclickable and has gray color.
+- ViewModel：calling updateButtonState function in the ViewModel and set property buttonState to disabled when the title textfield is empty
+- View：user delete all input in the title textfield
+- Model：TodoItem model
+#### **AC3:** Given: user landing at the input page, When: there is input in the title textfield, Then: the save button is clickable and has green color.
+- ViewModel：calling updateButtonState function in the ViewModel and set property buttonState to enabled when the title textfield has text
+- View：user type in input in the title textfield
+- Model：TodoItem model
+#### **AC4:** Given: user landing at the input page, When: there is input in the title textfield, click save button, Then: will direct to item listing page and the new item has been inserted to the first of todo section.
 - ViewModel：calling save function in the ViewModel, the todo item is restored in the local environment
 - View：user type in input in the title textfield, click save button, calling the save function in the ViewModel
 - Model：TodoItem model
